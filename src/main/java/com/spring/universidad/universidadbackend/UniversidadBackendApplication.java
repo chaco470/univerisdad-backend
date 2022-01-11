@@ -15,8 +15,6 @@ import java.util.List;
 @SpringBootApplication
 public class UniversidadBackendApplication {
 
-	@Autowired
-	private AlumnoDAO servicio;
 
 	public static void main(String[] args) {
 		String[] str = SpringApplication.run(UniversidadBackendApplication.class, args).getBeanDefinitionNames();
@@ -25,17 +23,4 @@ public class UniversidadBackendApplication {
 		}*/
 	}
 
-	@Bean
-	public CommandLineRunner runner(){
-		return  args -> {
-			/*Direccion direccion = new Direccion("Calle falsa","321","1234", "", "","Argenzuela");
-			Persona alumno = new Alumno(null, "Pedro", "Ramirez", "12345679",direccion);
-
-			Persona save = servicio.save(alumno);*/
-			List<Persona> alumnos = (List<Persona>) servicio.findAll();
-			for (Persona a : alumnos) {
-				System.out.println(a);
-			}
-		};
-	}
 }

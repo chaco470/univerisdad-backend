@@ -6,6 +6,6 @@ import com.spring.universidad.universidadbackend.modelo.entidades.Pabellon;
 
 public interface PabellonDAO extends GenericDAO<Pabellon>{
 
-    Iterable<Aula>findPabellonByDireccion_Localidad(String localidad);
-    Iterable<Aula>findPabellonByNombre(String nombre);
+    Iterable<Pabellon>findPabellonByDireccion_Localidad(String localidad);
+    Iterable<Pabellon>findPabellonByNombre(String nombre);
 }

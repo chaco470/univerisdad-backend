@@ -1,5 +1,7 @@
 package com.spring.universidad.universidadbackend.modelo.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -24,8 +26,10 @@ public class Carrera implements Serializable {
     @Column(name = "fecha_modificacion")
     private LocalDateTime fechaModificacion;
     @ManyToMany(mappedBy = "carreras", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"carreras"})
     private Set<Profesor> profesores;
     @OneToMany(mappedBy = "carrera", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"carrera"})
     private Set<Alumno> alumnos;
     public Carrera() {
     }

@@ -3,6 +3,8 @@ package com.spring.universidad.universidadbackend.modelo.entidades;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -17,8 +19,10 @@ public class Carrera implements Serializable {
     private Integer id;
     @Column(nullable = false, unique = true, length = 80)
     private String nombre;
+    @Positive(message = "El valor nunca puede ser negativo")
     @Column(name = "cantidad_materias")
     private Integer cantidadMaterias;
+    @Positive(message = "El valor nunca puede ser negativo")
     @Column(name = "cantidad_anios")
     private Integer cantidadAnios;
     @Column(name = "fecha_alta")

@@ -1,6 +1,7 @@
 package com.spring.universidad.universidadbackend.modelo.entidades;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -13,6 +14,7 @@ public class Pabellon implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Min(value = 2,message = "El valor nunca puede ser menor a 2")
     @Column(name = "metros_cuadrados")
     private Double mts2;
     @Column(name = "nombre_pabellon", unique = true, nullable = false)

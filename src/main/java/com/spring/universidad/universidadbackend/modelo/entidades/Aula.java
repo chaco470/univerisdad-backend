@@ -3,6 +3,8 @@ package com.spring.universidad.universidadbackend.modelo.entidades;
 import com.spring.universidad.universidadbackend.modelo.entidades.numeradores.TipoPizzarron;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -14,10 +16,13 @@ public class Aula implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Positive(message = "El valor nunca puede ser negativo")
     @Column(name = "numero_aula", nullable = false)
     private Integer numeroAula;
+    @Min(value = 2,message = "El valor nunca puede ser menor a 2")
     @Column(name = "medidas_mtsxmts")
     private Double mts2;
+    @Positive(message = "El valor nunca puede ser negativo")
     @Column(name = "cantidad_pupitres")
     private Integer pupitres;
     @Column(name = "tipo_pizzarron")
